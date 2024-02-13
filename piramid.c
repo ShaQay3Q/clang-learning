@@ -11,7 +11,7 @@ int main(void){
     print_piramid(i);
 }
 
-
+// non elegant code!
 void print_a_piramid(int n){
     for (int i = 0; i < n; i++){
         for (int v = (n-i); v > 0; v--){
@@ -37,6 +37,7 @@ void print_free_space(int n, int i){
     }
 }
 
+//more elegant code!
 void print_piramid(int n){
     for (int i = 0; i < n; i++){
         print_free_space(n, i);

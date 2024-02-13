@@ -8,7 +8,7 @@ void print_a_piramid(int n);
 
 int main(void){
     int i = get_int("piramid: ");
-    print_a_piramid(i);
+    print_piramid(i);
 }
 
 
@@ -32,13 +32,13 @@ void print_row(int n){
 }
 
 void print_free_space(int n, int i){
-    for (int v = (n - i); v > 0; i--){
+    for (int v = (n - i); v > 0; v--){
         printf(" ");
     }
 }
 
 void print_piramid(int n){
-    for (int i=0; i < n; i++){
+    for (int i = 0; i < n; i++){
         print_free_space(n, i);
         print_row(i);
         printf("\n");

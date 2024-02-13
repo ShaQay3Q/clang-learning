@@ -26,13 +26,13 @@ void print_a_piramid(int n){
 
 
 void print_row(int n){
-    for (int i; i < (n+1); i++){
+    for (int i; i < n; i++){
         printf("#");
     }
 }
 
-void print_free_space(int n, int i){
-    for (int v = (n - i); v > 0; v--){
+void print_free_space(int n){
+    for (int i = n; i > 0; i--){
         printf(" ");
     }
 }
@@ -40,8 +40,8 @@ void print_free_space(int n, int i){
 //more elegant code!
 void print_piramid(int n){
     for (int i = 0; i < n; i++){
-        print_free_space(n, i);
-        print_row(i);
+        print_free_space(n-i);
+        print_row(i+1);
         printf("\n");
     }
 }

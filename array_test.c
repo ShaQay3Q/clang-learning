@@ -23,7 +23,7 @@ float return_avrage(int scores[]) {
     int sum = 0;
     int length = sizeof(*scores);
     for (int i = 0; i < length; i++) {
-        sum = sum + scores[i];
+        sum += scores[i];
     }
     return (float)sum / length;
 }

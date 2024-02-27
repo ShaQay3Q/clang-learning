@@ -3,19 +3,31 @@
 
 void avarage_scores(int number);
 float return_avrage(int scores[]);
+float average(int length, int scores[]);
+
+// define a global value, so it stays the same throught the code
+int N = 3;
 
 int main(void) {
 
-    int n = get_int("Number of scores: ");
-    int scores[n];
+    // int n = get_int("Number of scores: ");
+    int scores[N];
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < N; i++) {
         scores[i] = get_int("Score: ");
     }
-    printf("Average: %f\n", return_avrage(scores));
+    printf("Average: %f\n", average(N, scores));
 
   // int dig = get_int("for how many? > ");
   // avarage_scores(dig);
+}
+
+float average(int length, int scores[]){
+    int sum = 0;
+    for (int i = 0; i < length; i++){
+        sum += scores[i];
+    }
+    return sum;
 }
 
 float return_avrage(int scores[]) {

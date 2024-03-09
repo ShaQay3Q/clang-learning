@@ -13,16 +13,14 @@ int main(void){
         arrayLength = get_int("How many numbers to display? >: ");
     }
     print_array(arrayLength, doubles);
-
-    
 }
 
 int array_of_doubles(int array_length, int array_name[]){
 
     int n = 1;
     for (int i = 0; i < array_length; i++){
-        n = n * 2;
         array_name[i] = n;
+        n = n * 2;
     }
     return array_name[array_length];
 }

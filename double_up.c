@@ -4,6 +4,8 @@
 int array_of_doubles(int array_length, int array_name[]);
 void print_array(int length, int name[]);
 int array_of_doubles02(int array_length, int array_name[]);
+void fill_print_array01(int length, int name[]);
+
 
 int main(void){
     
@@ -14,7 +16,12 @@ int main(void){
         arrayLength = get_int("How many numbers to display? >: ");
     }
     print_array(arrayLength, doubles);
+
+    int arrayOfDoubles[arrayLength];
+
+    fill_print_array01(arrayLength, arrayOfDoubles);
 }
+
 
 int array_of_doubles01(int array_length, int array_name[]){
 
@@ -47,3 +54,23 @@ void print_array(int length, int name[]){
         printf("index %i: value %i\n", i, name[i]);
     }
 }
+
+void fill_print_array01(int length, int name[]){
+
+    name[0] = 1;
+    printf("index %i: %i\n", 1, name[0]);
+    for (int i = 1; i < length; i++){
+        name[i] = name[i-1]*2;
+        printf("index %i: %i\n", i, name[i]);
+    }
+}
+
+
+// how to set name[0] as 1 and solving the problem only by using the loop?!
+// void fill_print_array02(int length, int name[]){
+
+//     for (int i = 1; i < length; i++){
+//         name[0] = i;
+//         printf("index %i: %i\n", i, name[i]);
+//     }
+// }

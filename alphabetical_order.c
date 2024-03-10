@@ -1,9 +1,6 @@
 #include "./src/cs50.h"
-#include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
-#include <strings.h>
-#include <ctype.h>
 
 void swapChar(char *Str, int index1, int index2);
 

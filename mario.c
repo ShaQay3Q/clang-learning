@@ -16,15 +16,25 @@ int main(int argc, string argv[]) {
   // }
 
   // Get the size of grid
+    if (argc != 2){
+        printf("Not enough arguments!\nFollow: ./mario <number>\n");
+        return 1;
+    }
     for(int i = 1; i<argc; i++){
 
         int n = atoi(argv[i]);
-        // int n = get_size();
+        if (n == 0) {
+            printf("argv[%i] = 0\n", i);
 
-        // Print grid of bricks
-        print_grid(n);
+            // int n = get_size();
+
+            // Print grid of bricks
+        } else {
+            print_grid(n);
+
+        }
     }
-
+    return 0;
 }
 
 int get_size(void) {

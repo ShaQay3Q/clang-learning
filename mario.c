@@ -1,11 +1,12 @@
 #include "./src/cs50.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 int get_size(void);
 void print_grid(int size);
 
 
-int main(void) {
+int main(int argc, string argv[]) {
 
   // int n = get_int("set the size of the grid: ");
 
@@ -15,10 +16,15 @@ int main(void) {
   // }
 
   // Get the size of grid
-    int n = get_size();
+    for(int i = 1; i<argc; i++){
 
-  // Print grid of bricks
-    print_grid(n);
+        int n = atoi(argv[i]);
+        // int n = get_size();
+
+        // Print grid of bricks
+        print_grid(n);
+    }
+
 }
 
 int get_size(void) {

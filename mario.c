@@ -8,14 +8,6 @@ void print_grid(int size);
 
 int main(int argc, string argv[]) {
 
-  // int n = get_int("set the size of the grid: ");
-
-  // while (n<1){
-  //     printf("Please enter a Natural Number");
-  //     n = get_int(": ");
-  // }
-
-  // Get the size of grid
     if (argc == 1){
         printf("Not enough arguments!\nFollow: ./mario <number>\n");
         return 1;
@@ -31,6 +23,7 @@ int main(int argc, string argv[]) {
 
             print_grid(n);
         }
+        return 0;
     }
 }
 

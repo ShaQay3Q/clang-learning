@@ -7,8 +7,8 @@ void sort(char *str, int length);
 
 int main(void){
 
-  char Str[] = "GHDEF";
-  char modStr[] = "DEFGH";
+  char Str[] = "SHAGHAYEGH";
+  char modStr[] = "AAEGGHHHSY";
   int l = strlen(Str);
 
   while (*Str != *modStr) {

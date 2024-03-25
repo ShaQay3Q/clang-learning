@@ -9,43 +9,28 @@ void selection_sort(int *initArr, int arrLength);
 int main(void){
 
     int numArr[] = {2, 8, 5, 3, 9, 4, 1};
-    printf("initial digits: ");
-    printDigits(numArr, 7);
-
-    swap(numArr, 6, 0);
-
-    printf("digits after the first swap: ");
-    printDigits(numArr, 7);
-
-    swap(numArr, 1, 6);
-
-    printf("digits after the second swap: ");
-    printDigits(numArr, 7);
+    int arrLength = 7;
+    selection_sort(numArr, arrLength);
 
 }
 
-// void selection_sort(int *initArr, int arrLength){
-//     int iMin;
-//     int i;
-//     for (i = 0; i < arrLength - 1; i++){
-//         iMin = i;
-//     }
-//     for (int currItm = i+1; currItm<arrLength; currItm++){
-//         if (initArr[currItm] < initArr[iMin]){
-//             iMin = currItm;
-//         }
-//     }
-//     if (iMin != i) {
-//         swap(initArr, i, iMin);
-//     }
-
+void selection_sort(int *initArr, int arrLength){
+        int iMin;
     
-//     printf("Sorted: ");
-//     for (int j = 0; i < arrLength; j++){
-//         printf("%i", initArr[j]);
-//     }
-//     printf("\n");
-// }
+    for (int i = 0; i < arrLength -1 ; i++){
+        iMin = i;
+        for (int iCurrent = i+1; iCurrent < arrLength; iCurrent++) {
+            if (initArr[iCurrent]<initArr[iMin]) {
+                iMin = iCurrent;
+            }
+            if (iMin != i) {
+                swap(initArr, i, iMin);
+            }
+        }
+    }
+    printf("Sorted: ");
+    printDigits(initArr, arrLength);
+}
 
 void swap(int *initArr, int iIndex, int iMin){
     int temp = initArr[iIndex];

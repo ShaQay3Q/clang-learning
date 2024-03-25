@@ -29,7 +29,7 @@ void printDigits(int *Arr, int length){
 }
 
 void insertation_sort(int *intArr, int length){
-        for (int i = 0; i < length; i++){
+    for (int i = 0; i < length; i++){
         for (int j = i; j > 0; j--){
             if (j > 0 && intArr[j-1] > intArr[j]){
                 swap(intArr, j, j-1);

@@ -1,4 +1,3 @@
-#include "./src/cs50.h"
 #include <stdio.h>
 
 void swap(int *initArr, int iIndex, int iMin);

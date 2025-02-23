@@ -28,7 +28,7 @@ void printDigits(int *Arr, int length) {
   printf("\n");
 }
 
-void insertation_sort(int *intArr, int length) {
+void insertion_sort(int *intArr, int length) {
   for (int i = 0; i < length; i++) {
     for (int j = i; j > 0; j--) {
       if (intArr[j - 1] > intArr[j]) {

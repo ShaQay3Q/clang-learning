@@ -1,5 +1,6 @@
 #include "./src/cs50.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void) {
 
@@ -8,5 +9,5 @@ int main(void) {
   string from = get_string("Where are you from?\n> ");
   printf("Hello %s %s from %s.\n", fisrt_name, last_name, from);
 
-  return 42;
+  return EXIT_SUCCESS;
 }

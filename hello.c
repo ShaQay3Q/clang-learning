@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 int main(void) {
+  printf("Hello, World!\n");
 
   string fisrt_name = get_string("What is your first name?\n> ");
   string last_name = get_string("What is your last name?\n> ");

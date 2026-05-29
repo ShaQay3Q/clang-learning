@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int get_size(void);
 void print_grid(int size);
+void print_row(int size);
+
 
 
 int main(int argc, string argv[]) {
@@ -12,36 +13,31 @@ int main(int argc, string argv[]) {
         printf("Not enough arguments!\nFollow: ./mario <number>\n");
         return 1;
     }
-    for(int i = 1; i < argc; i++){
+    int n = atoi(argv[1]);
 
-        int n = atoi(argv[i]);
         if (n == 0) {
 
-            printf("argv[%i] = 0\n", i);
+            printf("Come on! Do you really wanna see no blocks at all!\n");
 
         } else {
 
             print_grid(n);
         }
         return 0;
-    }
-}
-
-int get_size(void) {
-    int n;
-    do {
-        n = get_int("Set size: ");
-    } while (n < 1);
-    return n;
 }
 
 // print_grid prints grid of bricks
 void print_grid(int size) {
     for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size; j++) {
-            printf("#");
-        }
-        printf("\n");
+        print_row(size);
     }
 }
 
+//print_row prints row of bricks
+void print_row(int size)
+{
+    for(int i = 0; i < size; i++){
+        printf("#");
+    }
+    printf("\n");
+}

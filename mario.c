@@ -1,4 +1,3 @@
-#include "./src/cs50.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,7 +6,7 @@ void print_row(int size);
 
 
 
-int main(int argc, string argv[]) {
+int main(int argc, char *argv[]) {
     if (argc == 1){
         printf("Not enough arguments!\nFollow: ./mario <number>\n");
         return 1;

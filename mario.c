@@ -13,19 +13,37 @@ int main(int argc, char *argv[]) {
     }
     int n = atoi(argv[1]);
 
-    if(n < 0)
-    {
-        printf("Realy?!\n");
-        return 1;
-    } else if (n == 0)
-    {
-        printf("Come on! Do you really wanna see no blocks at all!\n");
-        return 1;
-    } else {
+    // | n  | (n > 0) | (n < 0) | Result |
+    // | -- | ------- | ------- | ------ |
+    // | -5 | 0       | 1       | -1     |
+    // | 0  | 0       | 0       | 0      |
+    // | 5  | 1       | 0       | 1      |
 
-        print_grid(n);
+    switch ((n > 0) - (n < 0)) {
+        case -1:
+            printf("Realy?!\n");
+            return 1;
+        case 0:
+            printf("Come on! Do you really wanna see no blocks at all!\n");
+            return 1;
+        case 1:
+            print_grid(n);
+            return 0;
     }
-    return 0;
+
+    // if(n < 0)
+    // {
+    //     printf("Realy?!\n");
+    //     return 1;
+    // } else if (n == 0)
+    // {
+    //     printf("Come on! Do you really wanna see no blocks at all!\n");
+    //     return 1;
+    // } else {
+
+    //     print_grid(n);
+    // }
+    // return 0;
 }
 
 // print_grid prints grid of bricks

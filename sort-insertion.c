@@ -2,13 +2,14 @@
 
 void swap(int *intArr, int i, int j);
 void printDigits(int *Arr, int length);
-void insertation_sort(int *intArr, int length);
+// void insertation_sort(int *intArr, int length);
+void insertion_sort(int *intArr, int length);
 
 int main(void) {
   int initArr[] = {2, 8, 5, 3, 9, 4, 1};
   int arrLength = 7;
 
-  insertation_sort(initArr, arrLength);
+  insertion_sort(initArr, arrLength);
 
   printf("Insert sort: ");
   printDigits(initArr, arrLength);

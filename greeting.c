@@ -2,7 +2,7 @@
 #include "./src/cs50.h"
 
 
-int main(int argc, string argv[]){
+int main(int argc, string argv[3]){
 
     // string name = get_string("What is your name?\n");
     // printf("Hello, %s\n", name);
@@ -14,4 +14,5 @@ int main(int argc, string argv[]){
     } else {
         printf("Hello, World!\n");
     }
+    printf("%s\n", argv[40]);
 }

@@ -3,7 +3,6 @@
 #include <string.h>
 #include <stdio.h>
 
-bool compare(char c1, char c2);
 
 int main(void)
 {
@@ -12,22 +11,12 @@ int main(void)
 
     for (int i = 0; i < l-1; i++)
     {
-        if(compare(input[i], input[i+1]))
+        if(input[i] > input[i+1])
         {
-            counter++;
-        }   
+            printf("NO\n");
+            return 0;
+        }
     }
-    if (counter == l - 1)
-    {
-        printf("YES\n");
-        return 0;
-    }
-    printf("NO\n");
-    return 1;
-
-}
-
-bool compare(char c1, char c2)
-{
-    return c1 < c2;
+    printf("YES\n");
+    return 0;
 }

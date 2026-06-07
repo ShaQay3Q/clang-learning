@@ -13,7 +13,7 @@ int main(void)
 
 int print_it(string input)
 {
-    for (int i = 0, l = strlen(input); i < l; i++)
+    for (int i = strlen(input); i >= 0; i--)
     {
         printf("%c",input[i]);
     }

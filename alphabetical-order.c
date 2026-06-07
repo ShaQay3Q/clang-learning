@@ -5,9 +5,6 @@
 
 bool compare(char c1, char c2);
 
-
-// a = 97
-// z = 122
 int main(void)
 {
     string input = get_string("Enter your input in all lowcase letters: ");

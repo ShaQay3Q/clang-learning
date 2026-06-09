@@ -11,11 +11,11 @@ int main(void)
     int b = get_int("Socond side length: '\n");
     int c = get_int("Third side length: '\n");
 
-    // if (a < 1 || b < 1 || c < 1)
-    // {
-    //     printf("No valid measurements were given.\n");
-    //     return 1;
-    // }
+    if (a < 1 || b < 1 || c < 1)
+    {
+        printf("No valid measurements were given.\n");
+        return 1;
+    }
 
     if (valid_triangle(a, b, c))
     {
@@ -28,28 +28,10 @@ int main(void)
     return 0;
 }
 
-// bool valid_triangle(int a, int b, int c)
-// {
-//     return (a + b > c) &&
-//            (a + c > b) &&
-//            (b + c > a);
-// }
-
 bool valid_triangle(int a, int b, int c)
 {
-        if (a < 1 || b < 1 || c < 1)
-    {
-        printf("No valid measurements were given.\n");
-        return 1;
-    }
-    
-    if(
-        (a + b < c) ||
-           (a + c < b) ||
-           (b + c < a)
-    )
-    {
-        return false;
-    }
-    return true;
+    return (a + b > c) &&
+           (a + c > b) &&
+           (b + c > a);
 }
+

@@ -9,7 +9,7 @@ int main(void)
     int length = (int)sizeof(names)/4; // sizeof() -> runtime -> gives the size in bytes ==> /4 is needed
     for(int i = 0; i < length-1; i++)
     {
-        if (strcmp(names[i], name))
+        if (strcmp(names[i], name)) // strcmp(names[i], name) == 0 => but seems to be redundant!
         {
             printf("%s -> Found!\n", name);
             return 0;

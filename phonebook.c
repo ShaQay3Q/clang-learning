@@ -4,20 +4,31 @@
 
 int main(void)
 {
-    string names[] = {"Aida", "Anran", "Ensi", "Maryam", "Natia"};
-    int numbers[] = {7, 10, 13, 1, 20};
+    // create specific data type in C
+    typedef struct
+    {
+        string name;
+        int number;
+    } person;
+
+    person people[] =
+    {
+        {"Aida", 7},
+        {"Anran", 10},
+        {"Ensi", 13},
+        {"Maryam", 1},
+        {"Natia", 20}
+    };
 
     string name = get_string("Name: ");
 
     for(int i = 0; i < 5; i++)
     {
-        printf("%s\n", names[i]);
-        if(strcmp(names[i], name) == 0)
+        if(strcmp(people[i].name, name) == 0)
         {
-            printf("%s number is %i\n", name, numbers[i]);
+            printf("%s number is %i\n", name, people[i].number);
             return 0;
         }
-
     }
     printf("%s Not Found!\n", name);
     return 1;

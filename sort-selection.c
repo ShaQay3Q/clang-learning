@@ -4,10 +4,11 @@
 void swap(int *input, int index, int index_min);
 void printDigits(int *input, int length);
 void selection_sort(int *input, int length);
-int parse_to_int(char *input[], int length, int output[]);
+int parse_to_int(char *input[], int input_length, int output[]);
 
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[])
+{
     
     int length = argc - 1;
     int numbers[length];
@@ -43,9 +44,9 @@ void selection_sort(int *input, int length)
     printDigits(input, length);
 }
 
-int parse_to_int(char *input[], int length, int output[])
+int parse_to_int(char *input[], int input_length, int output[])
 {
-    for(int i = 1; i < length; i++)
+    for(int i = 1; i < input_length; i++)
     {
         output[i - 1] = atoi(input[i]);
     }

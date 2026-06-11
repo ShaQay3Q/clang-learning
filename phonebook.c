@@ -2,14 +2,15 @@
 #include <string.h>
 #include <stdio.h>
 
+// create specific data type in C
+typedef struct
+{
+    string name;
+    int number;
+} person;
+
 int main(void)
 {
-    // create specific data type in C
-    typedef struct
-    {
-        string name;
-        int number;
-    } person;
 
     person people[] =
     {

@@ -1,46 +1,67 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-void swap(int *initArr, int iIndex, int iMin);
-void printDigits(int *Arr, int length);
-void selection_sort(int *initArr, int arrLength);
+void swap(int *input, int index, int index_min);
+void printDigits(int *input, int length);
+void selection_sort(int *input, int length);
+int parse_to_int(char *input[], int length, int output[]);
 
 
-int main(void){
+int main(int argc, char *argv[]){
+    
+    int length = argc - 1;
+    int numbers[length];
+    parse_to_int(argv, argc, numbers);
 
-    int numArr[] = {2, 8, 5, 3, 9, 4, 1};
-    int arrLength = 7;
-    selection_sort(numArr, arrLength);
+    selection_sort(numbers, length);
 
 }
 
-void selection_sort(int *initArr, int arrLength){
-        int iMin;
-    
-    for (int i = 0; i < arrLength -1 ; i++){
-        iMin = i;
-        for (int iCurrent = i+1; iCurrent < arrLength; iCurrent++) {
-            if (initArr[iCurrent]<initArr[iMin]) {
-                iMin = iCurrent;
-            }
-            if (iMin != i) {
-                swap(initArr, i, iMin);
+void selection_sort(int *input, int length)
+{
+    int index_min;
+
+    for (int i = 0; i < length - 1; i++)
+    {
+        index_min = i;
+
+        for (int current_index = i + 1; current_index < length; current_index++)
+        {
+            if (input[current_index] < input[index_min])
+            {
+                index_min = current_index;
             }
         }
+
+        if (index_min != i)
+        {
+            swap(input, i, index_min);
+        }
     }
+
     printf("Sorted: ");
-    printDigits(initArr, arrLength);
+    printDigits(input, length);
 }
 
-void swap(int *initArr, int iIndex, int iMin){
-    int temp = initArr[iIndex];
-    initArr[iIndex] = initArr[iMin];
-    initArr[iMin] = temp;
+int parse_to_int(char *input[], int length, int output[])
+{
+    for(int i = 1; i < length; i++)
+    {
+        output[i - 1] = atoi(input[i]);
+    }
+    return 0;
 }
 
-void printDigits(int *Arr, int length){
+void swap(int *input, int index, int index_min){
+    int temp = input[index];
+    input[index] = input[index_min];
+    input[index_min] = temp;
+}
+
+void printDigits(int *input, int length){
     
         for (int i = 0; i < length; i++){
-        printf("%i", Arr[i]);
+        printf("%i", input[i]);
     }
     printf("\n");
 }

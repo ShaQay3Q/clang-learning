@@ -20,11 +20,11 @@ int main(int argc, char *argv[])
 
 void selection_sort(int *input, int length)
 {
-    int index_min;
+    int swapped = 0;
 
     for (int i = 0; i < length - 1; i++)
     {
-        index_min = i;
+        int index_min = i;
 
         for (int current_index = i + 1; current_index < length; current_index++)
         {
@@ -37,7 +37,13 @@ void selection_sort(int *input, int length)
         if (index_min != i)
         {
             swap(input, i, index_min);
+            swapped = 1;
         }
+
+    }
+    if (!swapped)
+    {
+        printf("Already sorted\n");
     }
 
     printf("Sorted: ");

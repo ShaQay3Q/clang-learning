@@ -11,7 +11,6 @@ int main(void)
     int numbers[] = {2, 8, 5, 3, 9, 4, 1};
     // int numbers[] = {5, 3, 4, 1};
     int length = sizeof(numbers) / sizeof(numbers[0]);
-    printf("%i\n",length);
     bubble_sort(numbers, length);
     printDigits(numbers, length);
     return 0;
@@ -37,10 +36,10 @@ void swap(int *numbers, int i, int iMin)
 void bubble_sort(int *numbers, int length)
 {    
     bool swapped;
+
     for(int i = 0; i < length - 1; i++)
     {
-
-    swapped= false;
+    swapped = false;
 
     for(int j = 0; j < length - i - 1; j++)
     {
@@ -50,7 +49,7 @@ void bubble_sort(int *numbers, int length)
             swapped = true;
         }
     }
-    if(swapped == false)
+    if(!swapped)
         {
             break;
         }

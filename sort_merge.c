@@ -6,7 +6,7 @@ void merge(int *subleft, int *subright, int subleft_length, int subright_length,
 
 int main(void)
 {
-    int numbers[] = {5, 3, 4, 1, 6, 2, 8, 9};
+    int numbers[] = {5, 3, 4, 1, 6, 2, 8};
     int length = sizeof(numbers) / sizeof(numbers[0]);
 
     
@@ -15,23 +15,30 @@ int main(void)
 }
 
 void merge_sort(int *numbers, int length)
-{    
+{     
     if(length <= 1)
         return;
 
-    int subleft[length/2];
-    int subright[length/2];
+    int length_left = length / 2;
+    int length_right = length / 2;
+   
+    if (length % 2 == 1)
+    {
+        length_left = (length / 2 + 1);
+    }
+    int subleft[length_left];
+    int subright[length_right];
 
-    for(int i = 0; i < (length/2); i++)
+    for(int i = 0; i < length_left; i++)
         subleft[i] = numbers[i];
-    merge_sort(subleft, length/2);
+    merge_sort(subleft, length_left);
 
 
-    for(int j = 0; j < (length/2); j++)
-        subright[j] = numbers[length/2 + j];
-    merge_sort(subright, length/2);
+    for(int j = 0; j < length_left; j++)
+        subright[j] = numbers[length_left + j];
+    merge_sort(subright, length_right);
     
-    merge(subleft, subright, length/2, length/2, numbers);
+    merge(subleft, subright, length_left, length_right, numbers);
 }
 
 void merge(int *subleft,

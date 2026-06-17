@@ -16,25 +16,21 @@ int main(void)
 
 void merge_sort(int *numbers, int length)
 {     
-    if(length <= 1)
+    if (length <= 1)
         return;
 
     int length_left = length / 2;
-    int length_right = length / 2;
+    int length_right = length - length_left;
    
-    if (length % 2 == 1)
-    {
-        length_left = (length / 2 + 1);
-    }
     int subleft[length_left];
     int subright[length_right];
 
-    for(int i = 0; i < length_left; i++)
+    for (int i = 0; i < length_left; i++)
         subleft[i] = numbers[i];
     merge_sort(subleft, length_left);
 
 
-    for(int j = 0; j < length_right; j++)
+    for (int j = 0; j < length_right; j++)
         subright[j] = numbers[length_left + j];
     merge_sort(subright, length_right);
     
@@ -51,9 +47,9 @@ void merge(int *subleft,
     int j = 0;
     int index = 0;
 
-    while(i < subleft_length && j < subright_length)
+    while (i < subleft_length && j < subright_length)
     {
-        if (subleft[i] < subright[j])
+        if (subleft[i] <= subright[j])
         {
             numbers[index] = subleft[i];
             i++;
@@ -86,6 +82,6 @@ void merge(int *subleft,
 void printDigits(int *input, int length)
 {
     for (int i = 0; i < length; i++)
-        printf("%i", input[i]);
+        printf("%i ", input[i]);
     printf("\n");
 }

@@ -34,7 +34,7 @@ void merge_sort(int *numbers, int length)
     merge_sort(subleft, length_left);
 
 
-    for(int j = 0; j < length_left; j++)
+    for(int j = 0; j < length_right; j++)
         subright[j] = numbers[length_left + j];
     merge_sort(subright, length_right);
     

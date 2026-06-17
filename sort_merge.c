@@ -7,47 +7,62 @@ void merge(int *subleft, int *subright, int subleft_length, int subright_length,
 
 int main(void)
 {
-    int left[] = {3, 5}; //4, 1};
-    int right[] = {1, 4};
-    int numbers[4];
-    // int length = sizeof(numbers) / sizeof(numbers[0]);
-    int ll = 2;
-    int lr = 2;
+    // int left[] = {3, 5}; //4, 1};
+    // int right[] = {1, 4};
+    // int numbers[4];
+    int numbers[] = {5, 3, 4, 1, 6, 2, 8, 9};
+    int length = sizeof(numbers) / sizeof(numbers[0]);
+    // int ll = 2;
+    // int lr = 2;
     
-    merge(left, right, ll, lr, numbers);
+    merge_sort(numbers, length);
+    // merge(left, right, ll, lr, numbers);
     // printDigits(numbers, 4);
 }
 
-// void merge_sort(int *numbers, int length)
-// {    
-//     int subleft[length/2];
-//     int subright[length/2];
+void merge_sort(int *numbers, int length)
+{    
+    if(length < 1)
+    {
+        return;;
+    }
+    if(length == 1)
+    {
+        printDigits(numbers, length);
+        return;
+    }
 
-//     for(int i = 0; i < (length/2); i++)
-//     {
-//         subleft[i] = numbers[i];
-//         merge_sort(subleft, length/2);
-//     }
-//     for(int j = 0; j < (length/2); j++)
-//     {
-//         subright[j] = numbers[length/2 + j];
-//         merge_sort(subright, length/2);
-//     }
-//     printf("SubLeft: ");
-//     printDigits(subleft, length/2);
+    int subleft[length/2];
+    int subright[length/2];
 
-//     printf("SubRight: ");
-//     printDigits(subright, length/2);
-//     if(length == 2)
-//     {
-//         int subleft_length = sizeof(subleft)/sizeof(subleft[0]);
-//         int subright_length = sizeof(subright)/sizeof(subright[0]);
-//         merge(subleft, subright, subleft_length, subright_length);
-        
-//     }
-//     printf("numbers: ");
-//     printDigits(numbers, length);
-// }
+    for(int i = 0; i < (length/2); i++)
+    {
+        subleft[i] = numbers[i];
+    }
+    for(int j = 0; j < (length/2); j++)
+    {
+        subright[j] = numbers[length/2 + j];
+    }
+    
+    // printf("SubLeft: ");
+    // printDigits(subleft, length/2);
+
+    // printf("SubRight: ");
+    // printDigits(subright, length/2);
+
+    merge_sort(subleft, length/2);
+    merge_sort(subright, length/2);
+
+
+    // int subleft_length = sizeof(subleft)/sizeof(subleft[0]);
+    // int subright_length = sizeof(subright)/sizeof(subright[0]);
+    // merge(subleft, subright, subleft_length, subright_length, numbers);
+    
+    merge(subleft, subright, length/2, length/2, numbers);
+
+    printf("numbers: ");
+    printDigits(numbers, length);
+}
 
 
 
@@ -70,17 +85,17 @@ void merge(int *subleft,
         if (subleft[i] < subright[j])
         {
             numbers[index] = subleft[i];
-            printf("numbers[%i] = %i\n", index, numbers[index]);
+            // printf("numbers[%i] = %i\n", index, numbers[index]);
             i++;
         }
         else
         {
             numbers[index] = subright[j];
-            printf("numbers[%i] = %i\n", index, numbers[index]);
+            // printf("numbers[%i] = %i\n", index, numbers[index]);
             j++;
         }
-        printf("i= %i\n", i);
-        printf("j= %i\n", j);
+        // printf("i= %i\n", i);
+        // printf("j= %i\n", j);
         index++;
     }
 
@@ -99,7 +114,7 @@ void merge(int *subleft,
         i++;
         index++;
     }
-    printDigits(numbers, 4);
+    // printDigits(numbers, 4);
 }
 
 void printDigits(int *input, int length)

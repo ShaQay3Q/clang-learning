@@ -10,7 +10,7 @@ void merge_two_arrays(int *subleft, int *subright, int subleft_length, int subri
 int main(void)
 {
     // int numbers[] = {5, 3, 4, 1, 6, 2, 8};
-    int numbers[] = {-5, 7, -2, 10};
+    int numbers[] = {-5, 7, -2, 10, 3};
     // int numbers[] = {999};
     int length = sizeof(numbers) / sizeof(numbers[0]);
     int depth = 1;
@@ -29,14 +29,12 @@ void merge_sort(int *numbers, int length, int depth)
     printf("merge_sort(length=%d, depth=%d)\n",
            length,
            depth);
-    
-    // printf("sorting length %d\n", length);
-    
     if (length <= 1)
         return;
 
-
     depth++;
+
+      
 
     int length_left = length / 2;
     int length_right = length - length_left;
@@ -70,7 +68,7 @@ void merge_two_arrays(int *subleft,
     int j = 0;
     int index = 0;
 
-    printf("merging %d and %d\n",
+    printf("merging array of length %d with array of length %d\n",
        subleft_length,
        subright_length);
 

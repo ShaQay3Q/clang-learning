@@ -24,9 +24,13 @@ void merge_sort(int *numbers, int length, int depth)
 {         
     for(int i = 0; i < depth; i++)
         printf("  ");
-    printf("merge_sort(%d)\n", depth);
+
+    // For tracking the length and depth of each recurtion - just a check!
+    printf("merge_sort(length=%d, depth=%d)\n",
+           length,
+           depth);
     
-    printf("sorting length %d\n", length);
+    // printf("sorting length %d\n", length);
     
     if (length <= 1)
         return;

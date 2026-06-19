@@ -42,15 +42,17 @@ void merge_sort(int *numbers, int length, int depth)
     int subleft[length_left];
     int subright[length_right];
 
-    // memcpy(subleft, numbers, length_left*sizeof(subleft[0]));
+    memcpy(subleft, numbers, length_left * sizeof(subleft[0]));
+    
     for (int i = 0; i < length_left; i++)
         subleft[i] = numbers[i];
     merge_sort(subleft, length_left, depth);
 
 
-    // memcpy(subright,
-    //    numbers + length_left,
-    //    length_right * sizeof(int));
+    memcpy(subright,
+       numbers + length_left,
+       length_right * sizeof(subright[0]));
+
     for (int j = 0; j < length_right; j++)
         subright[j] = numbers[length_left + j];
     merge_sort(subright, length_right, depth);

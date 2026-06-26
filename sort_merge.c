@@ -12,7 +12,7 @@ int main(void)
     // int numbers[] = {5, 3, 4, 1, 6, 2, 8};
     int numbers[] = {-5, 7, -2, 10, 3};
     // int numbers[] = {999};
-    int length = sizeof(numbers) / sizeof(numbers[0]);
+    int q
     `
 
     merge_sort(numbers, left, depth);
@@ -30,7 +30,7 @@ void merge_sort(int *numbers, int left, int right)
     printf("merge_sort(length=%d, depth=%d)\n",
            length,
            depth);
-    if (length <= 1)
+    if (right <= 1)
         return;
 
     depth++;

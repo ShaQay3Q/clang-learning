@@ -38,6 +38,9 @@ int main(void)
     // -> These are actions that happen when the program runs.)
     president.name = "Alice";
     president.votes = 13;
+
+    printf("%s won the election with %i votes.\n",
+        president.name, president.votes);
 }
 
 

@@ -54,23 +54,29 @@ int main(void)
     printf("%s has %i votes.\n",
         user_input.name, user_input.votes);
 
-    candidate new = get_candidate();
-    printf("%s has %i votes.\n", new.name, new.votes);
+    candidate new_candidate = get_candidate();
+    printf("%s has %i votes.\n",
+        new_candidate.name, new_candidate.votes);
 }
 
+// Function to get a new_candidate candidate
 candidate get_candidate(void)
 {
-    // candidate candidate = 
-    // {
-    //     .name = get_string("Candidate name: "),
-    //     .votes = get_int("Number of votes: ")
-    // };
+    // Solution 1
+    candidate candidate = 
+    {
+        .name = get_string("Candidate name: "),
+        .votes = get_int("Number of votes: ")
+    };
 
-    string name = get_string("Candidate name: ");
-    int votes = get_int("Number of votes: ");
+    return candidate;
+
+    // Solution 2
+    // string name = get_string("Candidate name: ");
+    // int votes = get_int("Number of votes: ");
     
-    candidate new = {.name = name, .votes = votes};
-    return new;
+    // candidate new_candidate = {.name = name, .votes = votes};
+    // return new_candidate;
 }
 
 

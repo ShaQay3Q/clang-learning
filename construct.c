@@ -20,7 +20,8 @@ candidate;
 // y = 3.14;     // assignment statement
 
 //! Declaration with initialization:
-candidate deputy = {
+candidate deputy =
+{
     .name = "George",
     .votes = 10
 };
@@ -39,8 +40,17 @@ int main(void)
     president.name = "Alice";
     president.votes = 13;
 
+    candidate user_input =
+{
+    .name = get_string("Candidate name: "),
+    .votes = get_int("Number of votes: ")
+};
+
     printf("%s won the election with %i votes.\n",
         president.name, president.votes);
+
+    printf("%s has %i votes.\n",
+        user_input.name, user_input.votes);
 }
 
 

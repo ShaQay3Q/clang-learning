@@ -30,6 +30,8 @@ candidate deputy =
 //! A declaration with an initializer is still a declaration:
 //! The compiler treats them completely differently.
 
+candidate get_candidate(void);
+
 
 int main(void)
 {
@@ -41,17 +43,34 @@ int main(void)
     president.votes = 13;
 
     candidate user_input =
-{
-    .name = get_string("Candidate name: "),
-    .votes = get_int("Number of votes: ")
-};
+    {
+        .name = get_string("Candidate name: "),
+        .votes = get_int("Number of votes: ")
+    };
 
     printf("%s won the election with %i votes.\n",
         president.name, president.votes);
 
     printf("%s has %i votes.\n",
         user_input.name, user_input.votes);
+
+    candidate new = get_candidate();
+    printf("%s has %i votes.\n", new.name, new.votes);
 }
 
+candidate get_candidate(void)
+{
+    // candidate candidate = 
+    // {
+    //     .name = get_string("Candidate name: "),
+    //     .votes = get_int("Number of votes: ")
+    // };
+
+    string name = get_string("Candidate name: ");
+    int votes = get_int("Number of votes: ");
+    
+    candidate new = {.name = name, .votes = votes};
+    return new;
+}
 
 

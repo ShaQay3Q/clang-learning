@@ -6,9 +6,9 @@ int factorial(int n);
 
 int main(void)
 {
-    int n = get_int("Enter a number: ");
+    int n = get_int("factorial of: ");
     int output = factorial(n);
-    printf("result: %i\n", output);
+    printf("is: %i\n", output);
 }
 
 int factorial(int n)
@@ -18,6 +18,6 @@ int factorial(int n)
 
     if (n <= 1)
         return 1;
-    
+
     return (n * factorial(n - 1 ));
 }

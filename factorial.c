@@ -6,7 +6,7 @@ int factorial(int n);
 
 int main(void)
 {
-    int n = 3;
+    int n = get_int("Enter a number: ");
     int output = factorial(n);
     printf("result: %i\n", output);
 }

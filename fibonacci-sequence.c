@@ -16,7 +16,7 @@ int main(void)
 //! wherase the Factorial is a lINEAR RECURSION
 int fbncc_sqnc(int n)
 {
-    // Error case
+    // Invalid input case
     if (n < 0)
         return -1;
     // Base case

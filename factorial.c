@@ -13,11 +13,7 @@ int main(void)
 
 int factorial(int n)
 {
-    int result = 1;
-
     if (n <= 1)
-    {
-        return result;
-    }
+        return 1;
     return (n * factorial(n - 1 ));
 }

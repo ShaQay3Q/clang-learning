@@ -1,31 +1,48 @@
 #include "./src/cs50.h"
 #include <limits.h>
+#include <stdbool.h>
 #include <stdio.h>
 
-int fbncc_sqnc(int n);
+bool fbncc_sqnc(int n, int *result);
 
 
 int main(void)
 {
-    int n = get_int("Fibonacci sequence of: ");
+    int result;
 
-    if (n < 0)
+    if (!fbncc_sqnc(get_int("Fibonacci sequence of: "), &result))
     {
         printf("Invalid input\n");
         return 1;
     }
 
-    printf("is: %i\n", fbncc_sqnc(n));
+    printf("is: %i\n", result);
+    return 0;
 
 }
 
 //! Fibonacci Sequence is a a TREE RECURSION
 //! wherase the Factorial is a lINEAR RECURSION
-int fbncc_sqnc(int n)
-{
-    // Base case
-    if (n <= 1) return n;
+bool fbncc_sqnc(int n, int *result)
+{   
+    // Invalid case
+    if (n < 0) return false;
 
-    // Recursive case
-    return fbncc_sqnc(n - 1) + fbncc_sqnc(n - 2);
+    // Base case
+    if (n <= 1)
+    {
+        *result = n;
+        return true;
+    }
+
+    // recursive part
+    int a;
+    int b;
+
+    if (!fbncc_sqnc(n-1, &a)) return false;
+    
+    if (!fbncc_sqnc(n-2, &b)) return false;
+    
+    *result = a + b;
+    return true;
 }

@@ -11,7 +11,7 @@ int main(void)
 
     if (n < 0)
     {
-        printf("Please enter a non-negative integer.\n");
+        printf("Invalid input\n");
         return 1;
     }
 
@@ -24,9 +24,7 @@ int main(void)
 int fbncc_sqnc(int n)
 {
     // Base case
-    if (n == 0) return 0;
-
-    if (n == 1) return 1;
+    if (n <= 1) return n;
 
     // Recursive case
     return fbncc_sqnc(n - 1) + fbncc_sqnc(n - 2);

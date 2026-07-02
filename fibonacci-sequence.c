@@ -11,16 +11,17 @@ int fib(int prev, int curr, int steps);
 int main(void)
 {
     int n = get_int("Fibonacci number: ");
-    // int result;
+    int result;
 
-    // if (!fbncc_sqnc(n, &result))
-    // {
-    //     printf("Invalid input\n");
-    //     return 1;
-    // }
-
-    // printf("is: %i\n", result);
     printf("Fibonnaci number of %i, is %i\n", n, fibonacci(n));
+
+    if (!fbncc_sqnc(n, &result))
+    {
+        printf("Invalid input\n");
+        return 1;
+    }
+    
+    printf("is: %i\n", result);
 
 }
 

@@ -118,4 +118,4 @@ void rec_selection_sort(int numbers[], int arr_length, int start_index)
     numbers[min_index] = temp;
 
     return rec_selection_sort(numbers, arr_length, start_index + 1);
-}
+}       

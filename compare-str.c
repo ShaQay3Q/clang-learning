@@ -5,11 +5,21 @@
 
 int main(void)
 {
-    string s = get_string("s: ");
-    string t = get_string("t: ");
+    char *s = get_string("s: ");
+    char *t = get_string("t: ");
 
     if ( strcmp(s,t) == 0)
         printf("Same\n");
     else
         printf("Different\n");
+
+    printf("%p\n", &s[0]);
+    printf("%p\n", &s[1]);
+    printf("%p\n", &s[2]);
+    printf("%p\n", &s[3]);
+    printf("%p\n", &s[4]);
+    printf("%c\n", s[4]);
+
+    printf("%p\n", t);
+
 }

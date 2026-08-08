@@ -1,15 +1,15 @@
 #include "./src/cs50.h"
 #include <stdio.h>
+#include <string.h>
+
 
 int main(void)
 {
-    int j = 50;
-    int i = 60;
+    string s = get_string("s: ");
+    string t = get_string("t: ");
 
-    if ( i == j)
-        printf("%i = %i\n", i, j);
-    else if (i < j)
-        printf("%i < %i\n", i, j);
+    if ( strcmp(s,t) == 0)
+        printf("Same\n");
     else
-        printf("%i > %i\n", i, j);
+        printf("Different\n");
 }

@@ -10,14 +10,20 @@ int main(void)
     char *s = get_string("s: ");
     int l = strlen(s);
 
+    if (s == NULL || l <= 0) return 1;
+
     printf("l: %i\n", l);
     char *t = malloc((l + 1)); // length s + extra bite for \0 char (null terminator) //! NUL charachter
     //OR
     // char *t = malloc((l + 1) * sizeof(char)) //! sizeof(char) is always 1
     // strcpy() make a copy of a string
+    if (t == NULL) return 1;
+
     strcpy(t, s);
 
     t[0] = toupper(*t);
     printf("s is %s\n", s);
     printf("t is %s\n", t);
+    free(t);
+    return 0;
 }

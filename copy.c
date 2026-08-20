@@ -13,8 +13,8 @@ int main(void)
     printf("t is %s\n", t);
 
     printf("S[0]: %c\n", *s);
-    printf("S[0]: %c\n", *(s + 1));
-    printf("S[0]: %c\n", *(s + 2));
+    printf("S[0]: %c\n", *(s + 1)); // Doing arritmatic on pointer
+    printf("S[0]: %c\n", *(s + 2)); // The next address is one digit away!
 
     printf("%p: \n", &s);
     printf("%p: \n", &t);

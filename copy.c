@@ -16,6 +16,10 @@ int main(void)
     printf("S[0]: %c\n", *(s + 1)); // Doing arritmatic on pointer
     printf("S[0]: %c\n", *(s + 2)); // The next address is one digit away!
 
+    printf("S: %s\n", s);
+    printf("S+1: %s\n", s + 1);
+    printf("S+2: %s\n", s + 2);
+
     printf("%p: \n", &s);
     printf("%p: \n", &t);
 

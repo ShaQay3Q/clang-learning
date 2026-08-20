@@ -8,7 +8,7 @@ int main(void)
     char *s = get_string("s: ");
     char *t = get_string("t: ");
 
-    if ( strcmp(s,t) == 0)
+    if ( strcmp(s,t) == 0) // compares two strings together
         printf("Same\n");
     else
         printf("Different\n");

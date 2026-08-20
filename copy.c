@@ -8,8 +8,13 @@ int main(void)
     char *s = get_string("s: ");
     char *t = s; // t is the copy of the address of the string which s holds
 
+    // printf("s is %s\n", s);
     printf("s is %s\n", s);
     printf("t is %s\n", t);
+
+    printf("S[0]: %c\n", *s);
+    printf("S[0]: %c\n", *(s + 1));
+    printf("S[0]: %c\n", *(s + 2));
 
     printf("%p: \n", &s);
     printf("%p: \n", &t);

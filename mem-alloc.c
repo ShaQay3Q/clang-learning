@@ -9,9 +9,10 @@ int main(void)
     char *s = get_string("s: ");
     int l = strlen(s);
 
+    printf("l: %i\n", l);
     char *t = malloc(l + 1); // length s + extra bite for \0 char
     // printf("s is %s\n", s);
-    for (int i =0; i < l; i++)
+    for (int i =0, n = strlen(s); i <= n; i++)
     {
         t[i] = s[i];
     }

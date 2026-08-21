@@ -12,7 +12,8 @@ int main(void)
     // int numbers[] = {5, 3, 4, 1, 6, 2, 8};
     int numbers[] = {-5, 7, -2, 10, 3};
     // int numbers[] = {999};
-    int q
+    //! erroe here. need to check it later
+    int length = strlen(numbers[]);
     `
 
     merge_sort(numbers, left, depth);

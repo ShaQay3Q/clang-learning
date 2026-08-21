@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-void swap(int *numbers, int i, int iMin);
+// void swap(int *numbers, int i, int iMin);
+void swap(int *max, int *min);
 void printDigits(int *Arr, int length);
 void bubble_sort(int *numbers, int length);
 
@@ -26,11 +27,18 @@ void printDigits(int *Arr, int length)
   printf("\n");
 }
 
-void swap(int *numbers, int i, int iMin)
+// void swap(int *numbers, int i, int iMin)
+// {
+//   int temp = numbers[iMin];
+//   numbers[iMin] = numbers[i];
+//   numbers[i] = temp;
+// }
+
+void swap(int *max, int *min)
 {
-  int temp = numbers[iMin];
-  numbers[iMin] = numbers[i];
-  numbers[i] = temp;
+  int temp = *min;
+  *min = *max;
+  *max = temp;
 }
 
 void bubble_sort(int *numbers, int length)
@@ -49,7 +57,7 @@ void bubble_sort(int *numbers, int length)
 
             if(numbers[j] > numbers[j + 1])
             {
-                swap(numbers, j, j+1);
+                swap(&numbers[j], &numbers[j+1]);
                 swapped = true;
             }
             printDigits(numbers, length);

@@ -3,8 +3,7 @@
 
 int main(void)
 {
-    char *s;
-    s = malloc(8*sizeof(char));
+    char *s = malloc(8 * sizeof(char));
 
     if (s == NULL) return 1;
 

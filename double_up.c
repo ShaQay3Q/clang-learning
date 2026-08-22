@@ -66,7 +66,7 @@ void fill_print_array01(int length, int name[]){
 }
 
 
-// how to set name[0] as 1 and solving the problem only by using the loop?!
+// how to set name[0] as 1 and solving the problem only by using the loop?!one
 // void fill_print_array02(int length, int name[]){
 
 //     for (int i = 1; i < length; i++){

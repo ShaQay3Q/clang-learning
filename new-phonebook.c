@@ -4,7 +4,7 @@
 
 int main(void)
 {
-    FILE *file = fopen("phonebook.csv", "w"); // "w" for write
+    FILE *file = fopen("phonebook.csv", "a"); // "w" for write
     if (file == NULL)
     {
         return 1;

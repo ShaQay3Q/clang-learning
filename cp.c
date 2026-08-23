@@ -12,8 +12,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    FILE *src = fopen(argv[1], "rb"); // read in ninary mood
-    FILE *dst = fopen(argv[2], "wb"); // writ ein binary mood
+    FILE *src = fopen(argv[1], "rb"); // read in ninary mode
+    FILE *dst = fopen(argv[2], "wb"); // writ ein binary mode
 
     // ERROR handling - NULL
     if (src == NULL)

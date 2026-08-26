@@ -29,8 +29,8 @@ int main(int argc, char *argv[])
 
 }
 
-//     char *format = ".wav";
- //   if (has_same_format(argv[1], format)) return 1;
+//   char *format = ".wav";
+//   if (has_same_format(argv[1], format)) return 1;
 
 
 bool has_same_format(char const *input, char const *format)

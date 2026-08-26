@@ -26,11 +26,11 @@ int compare_last_format_characters(char const *input, char const *format) {
     size_t szinput = strlen(input);
     size_t szformat= strlen(format);
 
-    if (szinput < szformat) return 1;
+    if (szinput < szformat) return 1; // NO
     
     char *input_format = malloc((szformat + 1) * sizeof(char));
     
-    if (input_format == NULL) return 1;
+    if (input_format == NULL) return -1; // ERROR
     
     for(size_t i = 0; i < szformat + 1 ;i++)
     {
@@ -41,7 +41,7 @@ int compare_last_format_characters(char const *input, char const *format) {
 
     free(input_format);
 
-    if (result != 0) return 1;
+    if (result != 0) return 1; // NO
     
-    return 0;
+    return 0; // YES
 }

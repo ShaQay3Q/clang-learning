@@ -7,6 +7,10 @@ bool has_same_format(char const *input, char const *format);
 bool is_filename_acceptable(char const *input);
 bool is_valid_factor(const char *factor, float *f);
 
+// BYTE is an alias for unsigned char, used here to represent raw byte values
+typedef unsigned char BYTE ;
+
+
 int main(int argc, char *argv[])
 {
     // Check for correct number of arguments
@@ -26,25 +30,49 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    FILE *src = fopen(argv[1], "rb");
+    FILE *dst = fopen(argv[2], "wb"); // writ ein binary mode
 
-    fprintf(stdout, "f: %f\n",f);
+    // ERROR handling - NULL
+    if (src == NULL) return 1;
+    if (dst == NULL)
+    {
+        fclose(src);
+        return 1;
+    }
+
+    BYTE header[44];
+    size_t b_read;
+
+    // fread() returns the number of complete items read
+    //b_read should be 1
+    b_read = fread(header, sizeof(header), 1, src);
+    
+    // check for complete header read
+    if (b_read != 1)
+    {
+        fprintf(stdout, "Failed copy header.\n");
+        fclose(src);
+        fclose(dst);
+        return 1;
+    }
+    fwrite(header, sizeof(header), b_read, dst);
+
+    int16_t sample;    // one 16-bit audio sample
+    
+    while((b_read = fread(&sample, sizeof(sample), 1, src)) > 0)
+    {
+        sample = sample * f;
+        fwrite(&sample, sizeof(sample), b_read, dst);
+    }
 
 
 
-
-    FILE *file = fopen(argv[1], "rb");
-    if (file == NULL) return 1;
-
-
-
-
-    fclose(file);
+    fclose(src);
+    fclose(dst);
     return 0;
 
 }
-
-//   char *format = ".wav";
-//   if (has_same_format(argv[1], format)) return 1;
 
 
 bool has_same_format(char const *input, char const *format)
@@ -60,6 +88,7 @@ bool has_same_format(char const *input, char const *format)
     return true; // YES
 }
 
+// Vlidate argv[1] and argv[2]
 bool is_filename_acceptable(char const *input)
 {
         if (strlen(input) < 5)
@@ -78,6 +107,7 @@ bool is_filename_acceptable(char const *input)
     return true;
 }
 
+// Vlidate argv[3]
 bool is_valid_factor(const char *factor, float *f)
 {
     char *end;

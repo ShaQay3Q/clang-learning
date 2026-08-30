@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 
 bool has_same_format(char const *input, char const *format);
 bool is_filename_acceptable(char const *input);
@@ -31,12 +32,17 @@ int main(int argc, char *argv[])
     }
 
     FILE *src = fopen(argv[1], "rb");
-    FILE *dst = fopen(argv[2], "wb"); // writ ein binary mode
+    FILE *dst = fopen(argv[2], "wb"); // write in binary mode
 
     // ERROR handling - NULL
-    if (src == NULL) return 1;
-    if (dst == NULL)
+    if (src == NULL)
     {
+        printf("Error: could not open input file.\n");
+        return 1;
+    }
+        if (dst == NULL)
+    {
+        printf("Error: could not open output file.\n");
         fclose(src);
         return 1;
     }
@@ -51,7 +57,7 @@ int main(int argc, char *argv[])
     // check for complete header read
     if (b_read != 1)
     {
-        printf("Failed copy header.\n");
+        printf("Error: failed to read WAV header.\n");
         fclose(src);
         fclose(dst);
         return 1;
@@ -98,7 +104,7 @@ bool is_filename_acceptable(char const *input)
     // compare for correct format
     if (!has_same_format(input, ".wav"))
     {
-        printf("Error: input file must have a .wav extension.\n");
+        printf("Error: filename must have a .wav extension.\n");
         return false;
     }
 

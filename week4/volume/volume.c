@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
     // check for complete header read
     if (b_read != 1)
     {
-        fprintf(stdout, "Failed copy header.\n");
+        printf("Failed copy header.\n");
         fclose(src);
         fclose(dst);
         return 1;
@@ -67,11 +67,9 @@ int main(int argc, char *argv[])
     }
 
 
-
     fclose(src);
     fclose(dst);
     return 0;
-
 }
 
 
@@ -112,8 +110,6 @@ bool is_valid_factor(const char *factor, float *f)
 {
     char *end;
     *f = strtof(factor, &end);
-    fprintf(stdout, "%f\n",  *f);
-    fprintf(stdout, "%c\n", *end);
 
     if (end == factor)
     {

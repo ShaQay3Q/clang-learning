@@ -2,11 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/types.h>
 
 bool has_same_format(char const *input, char const *format);
 bool is_filename_acceptable(char const *input);
-
+bool is_valid_factor(const char *factor, float *f);
 
 int main(int argc, char *argv[])
 {
@@ -17,24 +16,29 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // Check the input and outout name and format
-    if (!is_filename_acceptable(argv[1]) || !is_filename_acceptable(argv[2]))
+    float f;
+
+    // Validate the arguments
+    if (!is_filename_acceptable(argv[1]) ||
+    !is_filename_acceptable(argv[2]) ||
+    !is_valid_factor(argv[3], &f))
     {
         return 1;
     }
 
-    // convert the factor into float
-    char *end;
-    float f = strtof(argv[3], &end);
-    fprintf(stdout, "%f\n",  f);
+
+    fprintf(stdout, "f: %f\n",f);
+
+
 
 
     FILE *file = fopen(argv[1], "rb");
     if (file == NULL) return 1;
-    
 
 
 
+
+    fclose(file);
     return 0;
 
 }
@@ -68,6 +72,34 @@ bool is_filename_acceptable(char const *input)
     if (!has_same_format(input, ".wav"))
     {
         printf("Error: input file must have a .wav extension.\n");
+        return false;
+    }
+
+    return true;
+}
+
+bool is_valid_factor(const char *factor, float *f)
+{
+    char *end;
+    *f = strtof(factor, &end);
+    fprintf(stdout, "%f\n",  *f);
+    fprintf(stdout, "%c\n", *end);
+
+    if (end == factor)
+    {
+        printf("Error: factor must be a number.\n");
+        return false;
+    }
+
+    if (*end != '\0')
+    {
+        printf("Error: factor must contain only a number.\n");
+        return false;
+    }
+
+    if (*f < 0)
+    {
+        printf("Error: factor must not be negative.\n");
         return false;
     }
 

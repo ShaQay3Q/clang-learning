@@ -57,9 +57,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int dj = -1; dj <= 1; dj++)
                 {
-                    if (0 <= i + di && i + di < height)
-                    {
-                        if (0 <= j + dj && j + dj < width)
+                    if (0 <= i + di && i + di < height && 0 <= j + dj && j + dj < width)
                         {
                             sum_b = sum_b + image[i + di][j + dj].rgbtBlue;
                             sum_g = sum_g + image[i + di][j + dj].rgbtGreen;
@@ -67,7 +65,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                             count++;
                         }
-                    }
                 }
             }
 
@@ -111,9 +108,8 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int dj = -1; dj <= 1; dj++)
                 {
-                    if (0 <= i + di && i + di < height)
-                    {
-                        if (0 <= j + dj && j + dj < width)
+                    if (i + di >= 0 && i + di < height &&
+                        j + dj >= 0 && j + dj < width)
                         {
                             s_blue[0] = (s_blue[0] + image[i + di][j + dj].rgbtBlue * X[di+1][dj+1]);
                             s_blue[1] = (s_blue[1] + image[i + di][j + dj].rgbtBlue * Y[di+1][dj+1]);
@@ -123,7 +119,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                             s_red[1] = (s_red[1] + image[i + di][j + dj].rgbtRed * Y[di+1][dj+1]);
 
                         }
-                    }
                 }
             }
 

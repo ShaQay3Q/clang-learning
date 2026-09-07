@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
         printf("Error: could not open input file.\n");
         return 1;
     }
-        if (dst == NULL)
+    if (dst == NULL)
     {
         printf("Error: could not open output file.\n");
         fclose(src);
@@ -95,7 +95,7 @@ bool has_same_format(char const *input, char const *format)
 // Vlidate argv[1] and argv[2]
 bool is_filename_acceptable(char const *input)
 {
-        if (strlen(input) < 5)
+    if (strlen(input) < 5)
     {
         printf("Error: filename must contain at least one character before the .wav extension.\n");
         return false;

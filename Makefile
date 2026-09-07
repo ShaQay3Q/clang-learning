@@ -5,7 +5,7 @@ CC = gcc
 # CC can be set to Clang as well, as compiler
 
 # Compiler flags
-CFLAGS = -Wall -Wextra -g
+CFLAGS = -Wall -Wextra -g -o
 
 # Include directory for header files if needed
 INC_DIR = src

@@ -1,8 +1,8 @@
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-typedef unsigned char BYTE ;
+#include <stdint.h>
 
 
 int main(int argc, char *argv[])
@@ -20,9 +20,9 @@ int main(int argc, char *argv[])
         return 2;
     }
 
-    const char signature[] = "%PDF-";
-    BYTE header[1024];
-    size_t b_read;
+    const uint8_t signature[4] = {0x25, 0x50, 0x44, 0x46};
+    uint8_t header[1024];
+    size_t buffer;
 
     FILE *input = fopen(argv[1], "rb");
     if (input == NULL)
@@ -31,13 +31,13 @@ int main(int argc, char *argv[])
         return 3;
     }
 
-    b_read = fread(header, 1, sizeof(header), input);
+    buffer = fread(header, 1, sizeof(header), input);
 
-    for (size_t i = 0; i + 5 < b_read; i++)
+    for (size_t i = 0; i + 4 < buffer; i++)
     {
         // memcmp() compares the contents of two regions of memory, byte by byte.
         // compares a slice of memory with range of 5 to the array
-        if ((memcmp(signature, header + i, 5)) == 0)
+        if ((memcmp(signature, header + i, 4)) == 0)
         {
             fprintf(stdout, "%s is a PDF file\n", argv[1]);        
             fclose(input);

@@ -32,6 +32,9 @@ int main(int argc, char *argv[])
     }
 
     buffer = fread(header, 1, sizeof(header), input);
+    
+    // close the stream right after reading the header into buffer
+    fclose(input);
 
     for (size_t i = 0; i + 5 < buffer; i++)
     {
@@ -40,12 +43,10 @@ int main(int argc, char *argv[])
         if ((memcmp(signature, header + i, 5)) == 0)
         {
             fprintf(stdout, "%s is a PDF file\n", argv[1]);        
-            fclose(input);
             return 0;
         }
     }
 
     printf("%s is NOT a PDF file!\n", argv[1]);
-    fclose(input);
-    return 1;
+    return 0;
 }

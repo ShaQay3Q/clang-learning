@@ -37,12 +37,12 @@ int main(int argc, char *argv[])
     // ERROR handling - NULL
     if (src == NULL)
     {
-        printf("Error: could not open input file.\n");
+        printf("Error: could not open %s.\n", argv[1]);
         return 1;
     }
     if (dst == NULL)
     {
-        printf("Error: could not open output file.\n");
+        printf("Error: could not create %s.\n", argv[2]);
         fclose(src);
         return 1;
     }

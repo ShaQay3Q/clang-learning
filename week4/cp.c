@@ -4,7 +4,7 @@ int main (int argc, char *argv[])
 {
     if (argc != 3)
     {
-        fprintf(stdout, "Usage: %s original-file-name copy-name.\n", argv[0]);
+        fprintf(stderr, "Usage: %s <source> <destination>\n", argv[0]);
         return 1;
     }
 
@@ -21,7 +21,7 @@ int main (int argc, char *argv[])
     if (output == NULL)
     {
         fclose(input);
-        fprintf(stdout, "Error: could not create a copy of %s!\n", argv[1]); 
+        fprintf(stderr, "Error: could not create a copy of %s!\n", argv[1]); 
         return 3;
     }
     while ((c = fgetc(input)) != EOF)

@@ -4,14 +4,14 @@ int main (int argc, char *argv[])
 {
     if (argc != 2)
     {
-        fprintf(stdout, "Usage: %s filename.\n", argv[0]);
+        fprintf(stderr, "Usage: %s <source>.\n", argv[0]);
         return 2;
     }
     int c;
     FILE *input = fopen(argv[1], "rb"); // read in binanry mode
     if (input == NULL)
     {
-        fprintf(stdout, "Error!\nCould not open %s.\n", argv[1]);
+        fprintf(stderr, "Error: could not open %s.\n", argv[1]);
         return 3;
     }
     while ((c = fgetc(input)) != EOF)

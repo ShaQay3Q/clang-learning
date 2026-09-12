@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     // Check for correct number of arguments
     if (argc != 4)
     {
-        printf("Usage: %s input.wav output.wav factor\n", argv[0]);
+        fprintf(stderr,"Usage: %s input.wav output.wav factor\n", argv[0]);
         return 1;
     }
 
@@ -37,12 +37,12 @@ int main(int argc, char *argv[])
     // ERROR handling - NULL
     if (src == NULL)
     {
-        printf("Error: could not open %s.\n", argv[1]);
+        fprintf(stderr, "Error: could not open %s.\n", argv[1]);
         return 1;
     }
     if (dst == NULL)
     {
-        printf("Error: could not create %s.\n", argv[2]);
+        fprintf(stderr, "Error: could not create %s.\n", argv[2]);
         fclose(src);
         return 1;
     }
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
     // check for complete header read
     if (b_read != 1)
     {
-        printf("Error: failed to read WAV header.\n");
+        fprintf(stderr, "Error: failed to read WAV header.\n");
         fclose(src);
         fclose(dst);
         return 1;
@@ -97,14 +97,14 @@ bool is_filename_acceptable(char const *input)
 {
     if (strlen(input) < 5)
     {
-        printf("Error: filename must contain at least one character before the .wav extension.\n");
+        fprintf(stderr,"Error: filename must contain at least one character before the .wav extension.\n");
         return false;
     }
 
     // compare for correct format
     if (!has_same_format(input, ".wav"))
     {
-        printf("Error: filename must have a .wav extension.\n");
+        fprintf(stderr, "Error: filename must have a .wav extension.\n");
         return false;
     }
 

@@ -8,7 +8,7 @@ int main (int argc, char *argv[])
         return 2;
     }
     int c;
-    FILE *input = fopen(argv[1], "r");
+    FILE *input = fopen(argv[1], "rb"); // read in binanry mode
     if (input == NULL)
     {
         fprintf(stdout, "Error!\nCould not open %s.\n", argv[1]);

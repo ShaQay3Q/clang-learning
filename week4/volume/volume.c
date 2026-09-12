@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    FILE *src = fopen(argv[1], "rb");
+    FILE *src = fopen(argv[1], "rb"); // read in binanry mode
     FILE *dst = fopen(argv[2], "wb"); // write in binary mode
 
     // ERROR handling - NULL

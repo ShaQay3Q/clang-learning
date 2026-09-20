@@ -14,7 +14,7 @@ int main(void)
     *(list + 1)  = 2;
     list[2] =  3;
 
-    // Re-allocate memory => either allocate more contecues memories
+    // Re-allocate memory => either allocate more contagious memories
     // or allocate anothe rpart of memory and do the copying
     int *tmp = realloc(list, 4 * sizeof(int));
     if (tmp == NULL)

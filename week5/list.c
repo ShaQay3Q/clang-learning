@@ -1,38 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "../src/cs50.h"
+
+
+typedef struct node
+{
+    int number;
+    struct node *next;
+
+} node; // convention
 
 int main(void)
 {
-    int *list = malloc(3 * sizeof(int));
-    if (list == NULL)
+    node *list = NULL;
+
+    for (int i = 0; i < 3; i++)
     {
-        printf("Error: Memory could not be allocated!\n");
-        return 1;
+        node *tmp_node = malloc(sizeof(node));
+        if (tmp_node == NULL)
+        {
+            fprintf(stderr,  "Error: not enough memory!\n");
+            return 1;
+        }
+        // dereference op.
+        (*tmp_node).number = get_int("Enter a number: ");
+        tmp_node->next = NULL;
+
+        // Prepend node to list
+        tmp_node->next = list;
+        list = tmp_node;
     }
-
-    list[0] = 1;
-    *(list + 1)  = 2;
-    list[2] =  3;
-
-    // Re-allocate memory => either allocate more contagious memories
-    // or allocate anothe rpart of memory and do the copying
-    int *tmp = realloc(list, 4 * sizeof(int));
-    if (tmp == NULL)
-    {
-        printf("Error: Memory could not be allocated!\n");
-        free(list);
-        return 1;
-    }
-
-    tmp[3] = 4;
-    list = tmp;
-
-        for (int i = 0; i < 4; i++)
-    {
-        printf("%i ", list[i]);
-    }
-    printf("\n");
-
-    free(list);
+    
     return 0;
 }

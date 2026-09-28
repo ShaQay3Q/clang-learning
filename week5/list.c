@@ -79,14 +79,15 @@ int main(void)
 
     // Print numbers
     node *ptr = list;
-    // if (ptr != NULL)
+    if (ptr != NULL)
     {
         printf("Beginning to end: \n");
         while (ptr != NULL) // MORE READBALE!!!
         {
-            printf("%i\n", ptr->number);
+            printf("%i ", ptr->number);
             ptr = ptr->next;
         }
+        printf("\n");
         
         // Move the ptr to the last node
         ptr = list;
@@ -99,10 +100,34 @@ int main(void)
         printf("In reverse: \n");
         while (ptr != NULL)
         {
-            printf("%i\n", ptr->number);
+            printf("%i ", ptr->number);
             ptr = ptr->prev;
         }
-    // }
+        printf("\n");
+
+        // TODO: move tow step forward, print, then more one step backward, print.
+        printf("Two step forward, one step backward:\n");
+        ptr = list;
+        // Staring position
+        printf("%i ", ptr->number);
+
+        for (int step = 0; step < 2; step++)
+        {
+            if (ptr->next == NULL)
+            {
+                break;
+            }
+            ptr = ptr->next;
+        }
+        printf("%i ", ptr->number);
+        if (ptr->prev != NULL)
+        {
+            printf("%i ", ptr->prev->number);
+            ptr = ptr->prev;
+        }
+        printf("\n");
+    }
+
     
     // for(node *ptr = list; ptr != NULL; ptr = ptr->next)
     // {

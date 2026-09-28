@@ -24,11 +24,18 @@ int main(void)
         }
         // dereference op.
         (*tmp_node).number = get_int("Enter a number: ");
-        tmp_node->next = NULL;
+        tmp_node->next = list;
 
         // Prepend node to list
-        tmp_node->next = list;
         list = tmp_node;
+    }
+
+    // Print numbers
+    node *ptr = list;
+    while (ptr != NULL)
+    {
+        printf("%i\n", ptr->number);
+        ptr = ptr->next;
     }
     
     return 0;

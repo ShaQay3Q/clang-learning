@@ -14,8 +14,15 @@ bool search(node *tree, int number);
 
 int main(void)
 {
+    node *tree = NULL;
+    
 
     return 0;
+}
+
+node *insert(node *tree, int number)
+{
+
 }
 
 bool search(node *tree, int number)

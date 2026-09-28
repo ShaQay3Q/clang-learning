@@ -24,20 +24,69 @@ int main(void)
         }
         // dereference op.
         (*tmp_node).number = get_int("Enter a number: ");
-        tmp_node->next = list;
+        tmp_node->next = NULL;
+
 
         // Prepend node to list
-        list = tmp_node;
+        // If list is empty
+        if(list == NULL)
+        {
+            // tmp_node->next = list;
+            // This node is the whole list
+            list = tmp_node;
+        }
+        // If numebr belongs to the begining of the list
+        else if (tmp_node->number < list->number)
+        {
+            tmp_node->next = list;
+            list = tmp_node;
+        }
+        // If the number belongs later in the list
+        else
+        {
+            // Iterate over the nodes in the list
+            for(node *ptr = list; ptr != NULL; ptr = ptr->next)
+            {
+                // If at the end of the list
+                if(ptr->next == NULL)
+                {
+                    // Apend one node
+                    ptr->next = tmp_node;
+                    break;
+                }
+                // If in the middle of the list
+                if(tmp_node->number < ptr->next->number)
+                {
+                    tmp_node->next = ptr->next;
+                    ptr->next = tmp_node;
+                    break;
+                }
+            }
+            
+        }
+
     }
 
     // Print numbers
-    // node *ptr = list;
-    // while (ptr != NULL)
-    for(node *ptr = list; ptr != NULL; ptr = ptr->next)
+    node *ptr = list;
+    while (ptr != NULL) // MORE READBALE!!!
     {
         printf("%i\n", ptr->number);
-        // ptr = ptr->next;
+        ptr = ptr->next;
     }
+    // for(node *ptr = list; ptr != NULL; ptr = ptr->next)
+    // {
+    //     printf("%i\n", ptr->number);
+    // }
     
+    // Free memory
+    ptr = list;
+    while(ptr != NULL)
+    {
+        node *next = ptr->next;
+        free(ptr);
+        ptr = next;
+    }
+
     return 0;
 }

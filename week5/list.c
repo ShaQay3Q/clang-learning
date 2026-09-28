@@ -79,7 +79,7 @@ int main(void)
 
     // Print numbers
     node *ptr = list;
-    if (ptr != NULL)
+    // if (ptr != NULL)
     {
         printf("Beginning to end: \n");
         while (ptr != NULL) // MORE READBALE!!!
@@ -102,7 +102,7 @@ int main(void)
             printf("%i\n", ptr->number);
             ptr = ptr->prev;
         }
-    }
+    // }
     
     // for(node *ptr = list; ptr != NULL; ptr = ptr->next)
     // {

@@ -36,7 +36,7 @@ int main(void)
     for(node *ptr = list; ptr != NULL; ptr = ptr->next)
     {
         printf("%i\n", ptr->number);
-        ptr = ptr->next;
+        // ptr = ptr->next;
     }
     
     return 0;

@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "../src/cs50.h"
 
-
 typedef struct node
 {
     int number;
@@ -10,16 +9,21 @@ typedef struct node
 
 } node; // convention
 
+// Prototype - Helper functions
+void unload(node *list);
+
+
 int main(void)
 {
     node *list = NULL;
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 5; i++)
     {
         node *tmp_node = malloc(sizeof(node));
         if (tmp_node == NULL)
         {
             fprintf(stderr,  "Error: not enough memory!\n");
+            unload(list);
             return 1;
         }
         // dereference op.
@@ -80,13 +84,18 @@ int main(void)
     // }
     
     // Free memory
-    ptr = list;
+    unload(list);
+
+    return 0;
+}
+
+void unload(node *list)
+{
+    node *ptr = list;
     while(ptr != NULL)
     {
         node *next = ptr->next;
         free(ptr);
         ptr = next;
     }
-
-    return 0;
 }

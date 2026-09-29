@@ -29,6 +29,15 @@ int main(void)
     printf("Numbers in order: \n");
     print_tree(tree);
 
+    if (search(tree, get_int("If this number exists: ")))
+    {
+        printf("YES!\n");
+    }
+    else
+    {
+        printf("NO!\n");
+    }
+
     unload(tree);
     return 0;
 }

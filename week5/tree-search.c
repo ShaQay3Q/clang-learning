@@ -15,6 +15,7 @@ bool search(node *tree, int number);
 node *insert(node *tree, int number);
 void print_tree(node *tree);
 void unload(node *tree);
+node *delete_node(node *tree, int number);
 
 
 int main(void)
@@ -126,3 +127,53 @@ void unload(node *tree)
     free(tree);
 }
 
+// Deletation
+node *delete_node(node *tree, int number)
+{
+    if (tree == NULL)
+    {
+        return NULL;
+    }
+    // Base case
+    if (number == tree->number)
+    {
+        if (tree->left == NULL && tree->right == NULL)
+        {
+            free(tree);
+            return NULL;
+        }
+        if (tree->left == NULL && tree->right != NULL)
+        {
+            node *tmp = tree;
+            tree = tree->right;
+            free(tmp);
+            return tree;
+        }
+        if (tree->right == NULL && tree->left != NULL)
+        {
+            node *tmp = tree;
+            tree = tree->left;
+            free(tmp);
+            return tree;
+        }
+        if (tree->right != NULL && tree->left != NULL)
+        {
+            node *tmp = tree;
+            tree->right->left = tree->left;
+            tree = tree->right;
+            free(tmp);
+            return tree;
+        }
+    }
+
+    // Recursive case
+    if (number < tree->number)
+    {
+        tree->left = delete_node(tree->left, number);
+    }
+    else
+    {
+        tree->right = delete_node(tree->right, number);
+    }
+    return tree;
+}

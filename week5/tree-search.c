@@ -14,6 +14,7 @@ typedef struct node{
 bool search(node *tree, int number);
 node *insert(node *tree, int number);
 void print_tree(node *tree);
+void unload(node *tree);
 
 
 int main(void)
@@ -25,8 +26,10 @@ int main(void)
         tree = insert(tree, n);
     }
 
-    printf("Numbers is order: \n");
+    printf("Numbers in order: \n");
     print_tree(tree);
+
+    unload(tree);
     return 0;
 }
 
@@ -100,3 +103,17 @@ void print_tree(node *tree)
     printf("%i\n", tree->number);
     print_tree(tree->right);
 }
+
+void unload(node *tree)
+{
+    // Base case
+    if (tree == NULL)
+    {
+        return;
+    }
+    // Recursive case
+    unload(tree->left);
+    unload(tree->right);
+    free(tree);
+}
+

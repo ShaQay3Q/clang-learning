@@ -88,11 +88,12 @@ bool search(node *tree, int number)
 // Prototype, before main
 void print_tree(node *tree)
 {
+    // base case
     if (tree == NULL)
     {
-        printf("NULL!");
         return;
     }
+    // recursive part
     print_tree(tree->left);
     printf("%i\n", tree->number);
     print_tree(tree->right);

@@ -30,6 +30,7 @@ int main(void)
     return 0;
 }
 
+// simple insert fuction
 node *insert(node *tree, int number)
 {
     // Base case: position empty
@@ -60,6 +61,7 @@ node *insert(node *tree, int number)
     return tree;
 }
 
+// Binary search on the tree
 bool search(node *tree, int number)
 {
     // Base case 1: no number found
@@ -85,7 +87,7 @@ bool search(node *tree, int number)
 
 }
 
-// Prototype, before main
+// Print the tree
 void print_tree(node *tree)
 {
     // base case

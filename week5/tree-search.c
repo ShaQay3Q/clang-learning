@@ -30,20 +30,19 @@ int main(void)
     printf("Numbers in order: \n");
     print_tree(tree);
 
-    int d = get_int("Number to delet: ");
+    int d = get_int("Number to delete: ");
 
     if (!search(tree, d))
     {
-        printf("No valid number!\n");
+        printf("Number not found!\n");
     }
     else
     {
         tree = delete_node(tree, d);
         printf("%i deleted!\n", d);
+        printf("Numbers in order: \n");
+        print_tree(tree);
     }
-    
-    printf("Numbers in order: \n");
-    print_tree(tree);
 
     unload(tree);
     return 0;

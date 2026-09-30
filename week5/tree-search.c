@@ -158,10 +158,14 @@ node *delete_node(node *tree, int number)
         }
         if (tree->right != NULL && tree->left != NULL)
         {
-            node *tmp = tree;
-            tree->right->left = tree->left;
-            tree = tree->right;
-            free(tmp);
+            // node *tmp = tree;
+            node *ptr = tree->right;
+            while (ptr->left != NULL)
+            {
+                ptr = ptr->left;
+            }
+            tree->number = ptr->number;
+            tree->right = delete_node(tree->right, ptr->number);
             return tree;
         }
     }

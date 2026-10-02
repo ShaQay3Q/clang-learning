@@ -18,6 +18,7 @@ void unload(node *tree);
 node *delete_node(node *tree, int number);
 node *left_balance(node *tree);
 node *right_balance(node *tree);
+int height(node *tree);
 
 
 
@@ -209,5 +210,38 @@ node *right_rotation(node *tree)
     temp->left = tree->right;
     tree->right = temp;
     return tree;
+}
+
+// Measuring hight of the tree
+int height(node *tree)
+{
+    if (tree == NULL)
+    {
+        return 0;
+    }
+    if (tree->left == NULL && tree->right == NULL)
+    {
+        return 1;
+    }
+    if (tree->left == NULL)
+    {
+        return height(tree->right) + 1;
+    }
+    if (tree->right == NULL)
+    {
+        return height(tree->left) + 1;
+    }
+    int h = 0;
+    int left_height = height(tree->left);
+    int right_height = height(tree->right);
+    if (left_height > right_height)
+    {
+        h = left_height;
+    }
+    else
+    {
+        h = right_height;
+    }
+    return h + 1;
 }
 

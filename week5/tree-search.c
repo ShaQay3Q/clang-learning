@@ -16,6 +16,9 @@ node *insert(node *tree, int number);
 void print_tree(node *tree);
 void unload(node *tree);
 node *delete_node(node *tree, int number);
+node *left_balance(node *tree);
+node *right_balance(node *tree);
+
 
 
 int main(void)
@@ -186,3 +189,21 @@ node *delete_node(node *tree, int number)
     }
     return tree;
 }
+
+// TODO: Let's balance this shit!
+// Left balance
+node *left_rotation(node *tree)
+{
+    node *temp = tree;
+    tree = tree->right;
+    temp->right = tree->left;
+    tree->left = temp;
+    return tree;
+}
+
+// Right balance
+node *right_rotation(node *tree)
+{
+
+}
+

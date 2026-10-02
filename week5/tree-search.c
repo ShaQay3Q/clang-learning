@@ -20,6 +20,7 @@ node *left_balance(node *tree);
 node *right_balance(node *tree);
 int height(node *tree);
 bool is_tree_balanced(int right_height, int left_height);
+node *tree_balance(node *tree);
 
 
 int main(void)
@@ -80,7 +81,7 @@ node *insert(node *tree, int number)
     {
         tree->right = insert(tree->right, number);
     }
-    return tree;
+    return tree_balance(tree);
 }
 
 // Binary search on the tree
@@ -136,7 +137,7 @@ void unload(node *tree)
     free(tree);
 }
 
-// Deletation
+// Delation
 node *delete_node(node *tree, int number)
 {
     if (tree == NULL)
@@ -156,14 +157,14 @@ node *delete_node(node *tree, int number)
             node *tmp = tree;
             tree = tree->right;
             free(tmp);
-            return tree;
+            return tree_balance(tree);
         }
         if (tree->right == NULL && tree->left != NULL)
         {
             node *tmp = tree;
             tree = tree->left;
             free(tmp);
-            return tree;
+            return tree_balance(tree);
         }
         if (tree->right != NULL && tree->left != NULL)
         {
@@ -175,7 +176,7 @@ node *delete_node(node *tree, int number)
             }
             tree->number = ptr->number;
             tree->right = delete_node(tree->right, ptr->number);
-            return tree;
+            return tree_balance(tree);
         }
     }
 
@@ -188,7 +189,7 @@ node *delete_node(node *tree, int number)
     {
         tree->right = delete_node(tree->right, number);
     }
-    return tree;
+    return tree_balance(tree);
 }
 
 // TODO: Let's balance this shit!

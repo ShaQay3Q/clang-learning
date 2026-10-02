@@ -204,6 +204,10 @@ node *left_rotation(node *tree)
 // Right balance
 node *right_rotation(node *tree)
 {
-
+    node *temp = tree;
+    tree = tree->left;
+    temp->left = tree->right;
+    tree->right = temp;
+    return tree;
 }
 

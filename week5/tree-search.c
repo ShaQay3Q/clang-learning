@@ -19,7 +19,7 @@ node *delete_node(node *tree, int number);
 node *left_balance(node *tree);
 node *right_balance(node *tree);
 int height(node *tree);
-
+bool is_tree_balanced(int right_height, int left_height);
 
 
 int main(void)
@@ -245,3 +245,35 @@ int height(node *tree)
     return h + 1;
 }
 
+bool is_tree_balanced(int right_height, int left_height)
+{
+    if (abs(right_height - left_height) > 1)
+    {
+        return false;
+    }
+    return true;
+}
+
+node *tree_balance(node *tree)
+{
+    if (tree == NULL)
+    {
+        return tree;
+    }
+    int right_height = height(tree->right);
+    int left_height =height(tree->left);
+    if (is_tree_balanced(right_height, left_height))
+    {
+        return tree;
+    }
+    if (right_height > left_height)
+    {
+        tree = left_rotation(tree);
+    }
+    else
+    {
+        tree = right_rotation(tree);
+    }
+    
+    return tree;
+}

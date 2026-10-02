@@ -268,10 +268,22 @@ node *tree_balance(node *tree)
     }
     if (right_height > left_height)
     {
+        right_height = height(tree->right->right);
+        left_height = height(tree->right->left);
+        if (left_height > right_height)
+        {
+            tree->right = right_rotation(tree->right);
+        }
         tree = left_rotation(tree);
     }
     else
     {
+        right_height = height(tree->left->right);
+        left_height = height(tree->left->left);
+        if (left_height < right_height)
+        {
+            tree->left = left_rotation(tree->left);
+        }
         tree = right_rotation(tree);
     }
     
